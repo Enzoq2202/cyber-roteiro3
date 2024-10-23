@@ -7,77 +7,103 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #e0e0e0;
             margin: 0;
             padding: 20px;
             color: #333;
         }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
             text-align: center;
             margin-bottom: 20px;
-            color: #4CAF50;
+            color: #2196F3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .section {
             background: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
         .section h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #333;
         }
         .section p {
-            margin: 5px 0;
+            margin: 8px 0;
             font-size: 16px;
+            line-height: 1.6;
+            color: #555;
         }
         .score {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: bold;
-            color: #2196F3;
-        }
-        .highlight {
-            color: #FF5722;
-            font-weight: bold;
+            color: #4CAF50;
         }
         .footer {
             text-align: center;
             font-size: 14px;
             margin-top: 20px;
             color: #888;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .highlight {
+            color: #FF5722;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section h2 {
+                font-size: 18px;
+            }
+            .score {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Privacy and Security Report</h1>
+    <h1>Privacy & Security Report</h1>
 
     <div class="section">
         <h2>Third-Party Connections</h2>
-        <p>Connections detected: <span id="third-party"></span></p>
+        <p>Connections detected: <span id="third-party" class="highlight"></span></p>
     </div>
 
     <div class="section">
         <h2>Cookies and Supercookies</h2>
-        <p>First-party cookies: <span id="first-party-cookies"></span></p>
-        <p>Third-party cookies: <span id="third-party-cookies"></span></p>
-        <p>Supercookies detected: <span id="super-cookies"></span></p>
+        <p>First-party cookies: <span id="first-party-cookies" class="highlight"></span></p>
+        <p>Third-party cookies: <span id="third-party-cookies" class="highlight"></span></p>
+        <p>Supercookies detected: <span id="super-cookies" class="highlight"></span></p>
     </div>
 
     <div class="section">
-        <h2>Storage Local (HTML5)</h2>
-        <p>LocalStorage items: <span id="local-storage"></span></p>
+        <h2>Local Storage (HTML5)</h2>
+        <p>LocalStorage items: <span id="local-storage" class="highlight"></span></p>
     </div>
 
     <div class="section">
         <h2>Browser Hijacking</h2>
-        <p>Hijacking attempts: <span id="hijacking"></span></p>
+        <p>Hijacking attempts: <span id="hijacking" class="highlight"></span></p>
     </div>
 
     <div class="section">
         <h2>Canvas Fingerprinting</h2>
-        <p>Fingerprinting detected: <span id="fingerprinting"></span></p>
+        <p>Fingerprinting detected: <span id="fingerprinting" class="highlight"></span></p>
     </div>
 
     <div class="section">
