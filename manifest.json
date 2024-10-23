@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "Privacy Detector",
+    "version": "1.0",
+    "description": "Detecta violações de privacidade durante a navegação.",
+    "icons": {
+      "48": "icons/icon.jpg"
+    },
+    "permissions": [
+      "cookies",
+      "storage",
+      "webRequest",
+      "webRequestBlocking",
+      "tabs",  
+      "http://*/",
+      "https://*/",
+      "activeTab"
+    ],
+    "background": {
+      "scripts": [
+        "background/background.js"
+      ],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "content/content.js"
+        ]
+      }
+    ],
+    "browser_action": {
+      "default_popup": "popup/popup.html"
+    }
+  }
+  
