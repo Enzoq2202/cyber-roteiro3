@@ -53,14 +53,20 @@ chrome.cookies.onChanged.addListener(function (changeInfo) {
 
 // Detecção de supercookies (IndexedDB)
 let request = indexedDB.open('SuperCookieTest', 1);
-request.onupgradeneeded = function (event) {
+request.onsuccess = function (event) {
     let db = event.target.result;
-    db.createObjectStore('store');
+    let transaction = db.transaction(['store'], 'readonly');
+    let objectStore = transaction.objectStore('store');
+    let countRequest = objectStore.count();
+
+    countRequest.onsuccess = function () {
+        if (countRequest.result > 0) {
+            superCookiesDetected = true;
+            chrome.storage.local.set({ superCookiesDetected });
+        }
+    };
 };
-request.onsuccess = function () {
-    superCookiesDetected = true;
-    chrome.storage.local.set({ superCookiesDetected });
-};
+
 
 // Verificação de itens no localStorage
 if (localStorage.length > 0) {

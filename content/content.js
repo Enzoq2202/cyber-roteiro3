@@ -23,7 +23,7 @@ let canvasFingerprint = null;
 let canvas = document.createElement("canvas");
 let ctx = canvas.getContext("2d");
 ctx.textBaseline = "top";
-ctx.font = "14px 'Arial'";
+ctx.font = '18px "Courier New"';
 ctx.textBaseline = "alphabetic";
 ctx.fillStyle = "#f60";
 ctx.fillRect(125, 1, 62, 20);
